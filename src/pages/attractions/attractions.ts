@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
+import * as firebase from 'firebase/app';
 
 /**
  * Generated class for the AttractionsPage page.
@@ -8,18 +9,34 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-attractions',
   templateUrl: 'attractions.html',
 })
 export class AttractionsPage {
 
+  attractions = []
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    firebase.database().ref("attractions/").on("value", (snapshot) => {
+      this.attractions = []
+      snapshot.forEach((childSnapshot) => {
+        this.attractions.push({ id: childSnapshot.key,
+                                nom: childSnapshot.val().nom,
+                                exp: childSnapshot.val().exp,
+                                photo: childSnapshot.val().photo
+         })
+        return false
+      })
+    })
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AttractionsPage');
+        console.log('ionViewDidLoad AttractionsPage');
+      }
+
+  goToDetails(attractions.id) {
+
   }
 
 }

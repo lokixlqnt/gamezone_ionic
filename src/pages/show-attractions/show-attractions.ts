@@ -9,14 +9,26 @@ import * as firebase from 'firebase/app';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-show-attractions',
   templateUrl: 'show-attractions.html',
 })
 export class ShowAttractionsPage {
 
+  id: ""
+  nom: ""
+  exp: ""
+  photo: ""
+  desc: ""
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.id = this.navParams.get("id")
+    firebase.database().ref("attractions/"+this.id).on("value", (snapshot)=>{
+      this.nom = snapshot.val().name
+      this.exp = snapshot.val().exp
+      this.photo = snapshot.val().photo
+      this.desc = snapshot.val().desc
+    })
   }
 
   ionViewDidLoad() {
