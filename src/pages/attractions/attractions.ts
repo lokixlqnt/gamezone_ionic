@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { ShowAttractionsPage } from '../show-attractions/show-attractions';
 import * as firebase from 'firebase/app';
 
 /**
@@ -35,8 +36,8 @@ export class AttractionsPage {
         console.log('ionViewDidLoad AttractionsPage');
       }
 
-  goToDetails(attractions.id) {
-
+  goToDetails(id) {
+    this.navCtrl.push(ShowAttractionsPage, {id: id})
   }
 
 }

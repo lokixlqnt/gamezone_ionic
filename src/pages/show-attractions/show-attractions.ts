@@ -24,7 +24,7 @@ export class ShowAttractionsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.id = this.navParams.get("id")
     firebase.database().ref("attractions/"+this.id).on("value", (snapshot)=>{
-      this.nom = snapshot.val().name
+      this.nom = snapshot.val().nom
       this.exp = snapshot.val().exp
       this.photo = snapshot.val().photo
       this.desc = snapshot.val().desc
