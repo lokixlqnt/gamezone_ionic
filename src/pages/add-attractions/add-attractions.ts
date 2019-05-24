@@ -30,7 +30,7 @@ export class AddAttractionsPage {
   }
 
   addAttraction() {
-    firebase.database("attractions/").push({
+    firebase.database().ref("attractions").push({
       nom: this.nom,
       exp: this.exp,
       photo: this.photo,

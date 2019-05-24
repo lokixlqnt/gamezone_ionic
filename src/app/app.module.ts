@@ -11,6 +11,8 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { AttractionsPage } from '../pages/attractions/attractions';
 import { ShowAttractionsPage } from '../pages/show-attractions/show-attractions';
+import { AddAttractionsPage } from '../pages/add-attractions/add-attractions';
+import { EditAttractionsPage } from '../pages/edit-attractions/edit-attractions';
 
 // import { FIREBASE_CONFIG } from './firebase.credentials';
 
@@ -25,7 +27,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     TabsPage,
     AttractionsPage,
-    ShowAttractionsPage
+    ShowAttractionsPage,
+    AddAttractionsPage,
+    EditAttractionsPage,
     // AngularFireModule.initializeApp(FIREBASE_CONFIG),
     // AngularFireDatabaseModule,
   ],
@@ -41,7 +45,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     TabsPage,
     AttractionsPage,
-    ShowAttractionsPage
+    ShowAttractionsPage,
+    AddAttractionsPage,
+    EditAttractionsPage,
   ],
   providers: [
     StatusBar,

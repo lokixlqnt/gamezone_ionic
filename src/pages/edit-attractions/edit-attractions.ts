@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
+
+import * as firebase from 'firebase/app';
 
 /**
  * Generated class for the EditAttractionsPage page.
@@ -22,6 +24,7 @@ export class EditAttractionsPage {
   }
   editAttraction() {
     firebase.database("attractions/" + this.id).update({
+      id: this.id,
       nom: this.nom,
       exp: this.exp,
       photo: this.photo,

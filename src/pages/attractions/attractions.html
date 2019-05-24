@@ -13,11 +13,13 @@
 <ion-content padding>
   <ion-list>
     <ion-item *ngFor="let attraction of attractions">
-      <button ion-button (click)="goToDetails(attraction.id)">
-        {{attraction.nom}}
-        {{attraction.exp}}
-        {{attraction.photo}}
-      </button>
+      {{attraction.nom}}
+      {{attraction.exp}}
+      {{attraction.photo}}
+      <button ion-button (click)="goToDetails(attraction.id)">SHOW</button>
+      <button ion-button (click)="goToEdit(attraction.id)">EDIT</button>
+      <button ion-button (click)="removeAttraction(attraction.id)">DELETE</button>
     </ion-item>
+    <button ion-button (click)="goToAdd()">Ajouter une attraction</button>
   </ion-list>
 </ion-content>

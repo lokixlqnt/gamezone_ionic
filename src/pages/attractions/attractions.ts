@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ShowAttractionsPage } from '../show-attractions/show-attractions';
+import { AddAttractionsPage } from '../add-attractions/add-attractions';
+import { EditAttractionsPage } from '../edit-attractions/edit-attractions';
 import * as firebase from 'firebase/app';
 
 /**
@@ -17,7 +19,7 @@ import * as firebase from 'firebase/app';
 export class AttractionsPage {
 
   attractions = []
-  
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     firebase.database().ref("attractions/").on("value", (snapshot) => {
@@ -40,7 +42,13 @@ export class AttractionsPage {
   goToDetails(id) {
     this.navCtrl.push(ShowAttractionsPage, {id: id})
   }
+  goToEdit() {
+    this.navCtrl.push(EditAttractionsPage, {id: id})
+  }
   removeAttraction(id) {
     firebase.database().ref("attractions/"+ this.id).remove()
+  }
+  goToAdd() {
+    this.navCtrl.push(AddAttractionsPage)
   }
 }
