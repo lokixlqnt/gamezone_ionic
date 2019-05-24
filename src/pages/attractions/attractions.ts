@@ -42,11 +42,11 @@ export class AttractionsPage {
   goToDetails(id) {
     this.navCtrl.push(ShowAttractionsPage, {id: id})
   }
-  goToEdit() {
+  goToEdit(id) {
     this.navCtrl.push(EditAttractionsPage, {id: id})
   }
   removeAttraction(id) {
-    firebase.database().ref("attractions/"+ this.id).remove()
+    firebase.database().ref("attractions/"+ id).remove()
   }
   goToAdd() {
     this.navCtrl.push(AddAttractionsPage)

@@ -11,5 +11,21 @@
 </ion-header>
 
 <ion-content padding>
-
+  <ion-item>
+    <ion-label>Nom</ion-label>
+    <ion-input [(ngModel)]="nom"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>URL de la photo</ion-label>
+    <ion-input [(ngModel)]="photo"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Description</ion-label>
+    <ion-input [(ngModel)]="desc"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Expérience gagnée</ion-label>
+    <ion-input [(ngModel)]="exp"></ion-input>
+  </ion-item>
+  <button ion-button (click)="editAttraction()">Editer</button>
 </ion-content>

@@ -16,6 +16,12 @@ import * as firebase from 'firebase/app';
 })
 export class EditAttractionsPage {
 
+  id: ""
+  nom: ""
+  exp: ""
+  photo: ""
+  desc: ""
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -23,8 +29,7 @@ export class EditAttractionsPage {
     console.log('ionViewDidLoad EditAttractionsPage');
   }
   editAttraction() {
-    firebase.database("attractions/" + this.id).update({
-      id: this.id,
+    firebase.database().ref("attractions/" + this.id).update({
       nom: this.nom,
       exp: this.exp,
       photo: this.photo,
