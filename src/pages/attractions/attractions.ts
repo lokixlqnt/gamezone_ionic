@@ -17,6 +17,7 @@ import * as firebase from 'firebase/app';
 export class AttractionsPage {
 
   attractions = []
+  
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     firebase.database().ref("attractions/").on("value", (snapshot) => {
@@ -39,5 +40,7 @@ export class AttractionsPage {
   goToDetails(id) {
     this.navCtrl.push(ShowAttractionsPage, {id: id})
   }
-
+  removeAttraction(id) {
+    firebase.database().ref("attractions/"+ this.id).remove()
+  }
 }

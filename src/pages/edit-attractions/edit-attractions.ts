@@ -20,5 +20,12 @@ export class EditAttractionsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditAttractionsPage');
   }
-
+  editAttraction() {
+    firebase.database("attractions/" + this.id).update({
+      nom: this.nom,
+      exp: this.exp,
+      photo: this.photo,
+      desc: this.desc
+    })
+  }
 }

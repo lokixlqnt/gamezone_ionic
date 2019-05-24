@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
+import * as firebase from 'firebase/app';
 
 /**
  * Generated class for the AddAttractionsPage page.
@@ -14,11 +15,26 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AddAttractionsPage {
 
+  id: ""
+  nom: ""
+  exp: ""
+  photo: ""
+  desc: ""
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddAttractionsPage');
   }
 
+  addAttraction() {
+    firebase.database("attractions/").push({
+      nom: this.nom,
+      exp: this.exp,
+      photo: this.photo,
+      desc: this.desc
+    })
+  }
 }
