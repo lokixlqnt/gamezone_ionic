@@ -9,10 +9,12 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { Geolocation } from '@ionic-native/geolocation';
 import { AttractionsPage } from '../pages/attractions/attractions';
 import { ShowAttractionsPage } from '../pages/show-attractions/show-attractions';
 import { AddAttractionsPage } from '../pages/add-attractions/add-attractions';
 import { EditAttractionsPage } from '../pages/edit-attractions/edit-attractions';
+import { PlanPage } from '../pages/plan/plan';
 
 // import { FIREBASE_CONFIG } from './firebase.credentials';
 
@@ -30,6 +32,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ShowAttractionsPage,
     AddAttractionsPage,
     EditAttractionsPage,
+    PlanPage,
     // AngularFireModule.initializeApp(FIREBASE_CONFIG),
     // AngularFireDatabaseModule,
   ],
@@ -48,11 +51,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ShowAttractionsPage,
     AddAttractionsPage,
     EditAttractionsPage,
+    PlanPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
+
   ]
 })
 export class AppModule {}
